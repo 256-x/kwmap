@@ -24,9 +24,7 @@
   .main {
 
   
-    margin: 0 auto;
-    width: 60%;
-    margin-top: 10%;
+        margin-top: 10%;
   }
 
 
@@ -35,8 +33,15 @@
     margin-top: 25px;
   }
 
-  #word1 {
+  h1 {
 
+    font-family: Helvetica;
+
+
+  }
+
+  #word1 {
+    margin-left: -20px;
     color: #FF9933;
   }
 
@@ -54,21 +59,29 @@
   }
 
   #keyword {
-
+    max-width: 250px;
     float: left;
 
   }
 
+  input {
+
+    box-sizing: border-box;
+  }
+
+
   #btn {
 
     float: right;
-    width: 130px;
-    margin-left: 20px;
+    max-width: 130px;
+    margin-left: 10px;
+    background-color: #3399ff
+
   }
 
   #input_head {
 
-    width: 400px;
+    max-width: 400px;
   }
 
 
@@ -107,7 +120,7 @@
   .output {
 
     margin-top: 20px;
-    width: 400px;
+    max-width: 400px;
     background-color: #262626;
     margin: 0 auto;
     margin-top: 20px;
@@ -143,18 +156,18 @@
 
   .output_body {
 
-    margin-top: 20px;
+       margin-top: 20px;
 
   }
 
   .output_head {
 
-    width: 400px;
+    max-width: 400px;
   }
 
   .input_head {
 
-    width: 400px;
+    max-width: 400px;
   }
 
   .output_head_right {
@@ -192,6 +205,25 @@
   .active::after{
 
     content: "\f00c"
+  }
+
+  @media screen and (max-width: 360px) {
+
+    #keyword {float: none;}
+    #btn { float: none; margin-top: 10px; }
+
+  }
+
+  @media screen and (max-width: 375px) {
+    #keyword { width: 240px; }
+    #input_head { margin: 5px; }
+    .output_head { margin: 5px; }
+  }
+
+  @media screen and (max-width: 320px) {
+    #word1 { margin: 0px; }
+    .output_head_right { margin: 0px; }
+    #selection { width: 105px; }
   }
 
 
