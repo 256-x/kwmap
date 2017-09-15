@@ -40,14 +40,14 @@ if($level == "basic"){
 
 				$count = "1";
 											
-				$data = '<tr class="record" id="tr_'.$count.'"><td align="center" colspan="3" width="100%"><script type="text/javascript"> $.ajax({ type: "GET", url: "requests.php", data: "keyword='.$keywords.'", success: function(data){ $("#tr_'.$count.'").empty(); $("#tr_'.$count.'").append(data); } }); </script><span id="loading_review" style="display:inline;"><img src="images/loading_review.gif" width="18" height="18" align="absmiddle"></span></td></tr>';
+				$data = '<tr class="record" id="tr_'.$count.'"><td align="center" colspan="3" width="100%"><script type="text/javascript"> $.ajax({ type: "GET", url: "requests.php", data: "keyword='.$keywords.'", success: function(data){ $("#tr_'.$count.'").empty(); $("#tr_'.$count.'").append(data); } }); </script><span id="loading_review" style="display:inline;"></span></td></tr>';
 				$count++;
 				
 				foreach(range('a', 'z') as $letter) {
 
 					
 			
-						$data .= '<tr class="record" id="tr_'.$count.'"><td align="center" colspan="3" width="100%"><script type="text/javascript"> $.ajax({ type: "GET", url: "requests.php", data: "keyword='.$keywords.' '.$letter.'&letter='.$letter.'", success: function(data){ $("#tr_'.$count.'").empty(); $("#tr_'.$count.'").append(data); } }); </script><span id="loading_review" style="display:inline;"><img src="images/loading_review.gif" width="18" height="18" align="absmiddle"></span></td></tr>';
+						$data .= '<tr class="record" id="tr_'.$count.'"><td align="center" colspan="3" width="100%"><script type="text/javascript"> $.ajax({ type: "GET", url: "requests.php", data: "keyword='.$keywords.' '.$letter.'&letter='.$letter.'", success: function(data){ $("#tr_'.$count.'").empty(); $("#tr_'.$count.'").append(data); } }); </script><span id="loading_review" style="display:inline;"></span></td></tr>';
 						$count++;
 
 												
@@ -61,12 +61,12 @@ if($level == "basic"){
 	
 				$count = "1";
 											
-				$data = '<tr class="record" id="tr_'.$count.'"><td align="center" colspan="3" width="100%"><script type="text/javascript"> $.ajax({ type: "GET", url: "requests.php", data: "keyword='.$keywords.'", success: function(data){ $("#tr_'.$count.'").empty(); $("#tr_'.$count.'").append(data); } }); </script><span id="loading_review" style="display:inline;"><img src="images/loading_review.gif" width="18" height="18" align="absmiddle"></span></td></tr>';
+				$data = '<tr class="record" id="tr_'.$count.'"><td align="center" colspan="3" width="100%"><script type="text/javascript"> $.ajax({ type: "GET", url: "requests.php", data: "keyword='.$keywords.'", success: function(data){ $("#tr_'.$count.'").empty(); $("#tr_'.$count.'").append(data); } }); </script><span id="loading_review" style="display:inline;"></span></td></tr>';
 				$count++;
 				
 				foreach(range('a', 'z') as $letter) {
 			
-				$data .= '<tr class="record" id="tr_'.$count.'"><td align="center" colspan="3" width="100%"><script type="text/javascript"> $.ajax({ type: "GET", url: "requests.php", data: "keyword='.$keywords.' '.$letter.'&letter='.$letter.'", success: function(data){ $("#tr_'.$count.'").empty(); $("#tr_'.$count.'").append(data); } }); </script><span id="loading_review" style="display:inline;"><img src="images/loading_review.gif" width="18" height="18" align="absmiddle"></span></td></tr>';
+				$data .= '<tr class="record" id="tr_'.$count.'"><td align="center" colspan="3" width="100%"><script type="text/javascript"> $.ajax({ type: "GET", url: "requests.php", data: "keyword='.$keywords.' '.$letter.'&letter='.$letter.'", success: function(data){ $("#tr_'.$count.'").empty(); $("#tr_'.$count.'").append(data); } }); </script><span id="loading_review" style="display:inline;"></span></td></tr>';
 				$count++;
 				
 				foreach(range('a', 'z') as $second_letter) {
@@ -93,7 +93,7 @@ $generated_content = <<<EOF
 
 
   <div id="left">
-	  <h2>Suggestions for $keywords</h2>
+	  <h2 id="suggestions_header">Suggestions for $keywords:</h2>
 
       
     
@@ -102,7 +102,9 @@ $generated_content = <<<EOF
 	   
 		$data
 
-      </table>    
+      </table>
+
+
 
      
   </div>

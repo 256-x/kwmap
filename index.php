@@ -41,6 +41,7 @@
   }
 
   #word1 {
+
     margin-left: -20px;
     color: #FF9933;
   }
@@ -155,8 +156,8 @@
   }
 
   .output_body {
-
-       margin-top: 20px;
+     
+      margin-top: 20px;
 
   }
 
@@ -226,6 +227,30 @@
     #selection { width: 105px; }
   }
 
+  .footer a {
+
+    color: white;
+    font-size: 20px;
+   
+
+  }
+
+  .footer {
+
+    position: fixed;
+    height: 50px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin-bottom: 0px;
+
+  }
+
+  body {
+
+    margin-bottom:50px;
+  }
+
 
   </style>
 
@@ -286,6 +311,14 @@
       <div class="output_body" id="output_body">
 
       
+      </div>
+
+      <div class="footer text-center">
+
+        <a href="/about">About</a>
+
+        <a href="/legal" style="padding-left: 20px">Legal Notice</a>
+
       </div>
          
  
@@ -385,6 +418,14 @@
     <script type="text/javascript">
 
 
+        //ajax stop
+
+        $(document).ajaxStop(function () {
+
+
+          $('#suggestions_header').prepend($('.item').length + " ");
+
+        })
    
  
         //toggle class to active, if span is clicked
@@ -404,21 +445,6 @@
               })
 
 
-
-     
-
-
-
-
-
-      
-
-
-
-
-
-
-
       // get keywords
 
 
@@ -432,11 +458,11 @@
 
 
 
-    $("#btn").click(function() {
+    $("#btn").click(function(event) {
 
       if ($('#keyword').val() != "") {
 
-       
+
       $.ajax({
         type: "POST",
         url: "ajax.php",
@@ -453,15 +479,15 @@
 
 
 
-          $('.output_body').html(data);
+            $('.output_body').html(data);
           //$('.output_body').append(data)
 
             //if item is clicked, change class to active, update button with active count
               
         
           $('#selection').show();
-         $('#copy_all').show();
-         $('#export').show();
+          $('#copy_all').show();
+          $('#export').show();
 
 
 
@@ -484,6 +510,7 @@
      $('#selection').hide();
      $('#copy_all').hide();
      $('#export').hide();
+     event.preventDefault();
 
 
       alert("Please enter a keyword!")
