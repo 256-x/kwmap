@@ -1,0 +1,26 @@
+* { margin: 0; padding: 0; }
+body { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 12px; text-align:center; margin: 15px 0; }
+#container { width: 95%; margin: 0 auto; text-align:left; }
+h2 { margin: 0 0 5px 0; color:white; }
+#left { width: 100%; float: left; margin-left: -4px; }
+#right { width: 90%; float: left; }
+
+#table th { border-top: 1px solid #CCC; border-bottom: 1px solid #ccc; color:#333; background: #eee; padding: 5px; }
+#table th a { color: #333; text-decoration: none; }
+#table td { padding: 4px; font-size: 17px; color: white;}
+#table_search td { padding: 4px; font-size: 12px; }
+#table_search th { font-weight: bold; text-align: right; padding-right: 8px; }
+tr#se { border-bottom: 1px solid #CCC; color: #000; }
+#se .name { font-size: 14px; font-weight: bold; }
+.google { background: url(../images/google.png) no-repeat 12px 4px; }
+.yahoo { background: url(../images/yahoo.png) no-repeat 12px 4px; }
+.bing { background: url(../images/bing.png) no-repeat 12px 4px; }
+.field { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; padding: 3px; width: 260px; border: 1px solid #CCC; font-size: 12px; }
+.field:focus { border: 1px solid #999; }
+.drop { float: left; width: 65%; }
+#select { padding: 2px 0; width: 130px; }
+.mo { float: right; text-align: right; width: 35%; } 
+.orange { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; background: #F60 url(../images/orange.jpg);padding:4px 12px;border:1px solid #ae3700;font-weight: bold;cursor: pointer;color:#FFFFFF;font-size:12px; text-decoration:none;-moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius: 3px; }
+.submit { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; background: #090 url(../images/green.gif);padding: 1px 12px;border:1px solid #063;font-weight: bold;cursor: pointer;color:#FFFFFF;font-size:12px; text-decoration:none;-moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius: 3px; }
+.clear { clear:both; overflow: auto; width: 100% }
+#footer { margin: 25px 0 40px 0; color: #999; text-transform: uppercase; font-size: 10px; }
