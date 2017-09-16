@@ -1,0 +1,405 @@
+
+
+        //ajax stop
+
+        $(document).ajaxStop(function () {
+
+
+          $('#suggestions_header').prepend($('.item').length + " ");
+
+        })
+   
+ 
+        //toggle class to active, if span is clicked
+
+        $(document).on('click', '.item', function() {
+
+              $(this).toggleClass('active')
+
+                var numItems = $('.active').length;
+
+                $('#selection').html(" KWs: "+ numItems);
+
+             
+
+              
+
+              })
+
+
+      // get keywords
+
+
+  $(document).ready(function(){
+
+    //hide tooltip from input bar if selected
+
+    $('#keyword').focus(function () {
+
+
+        $('#keyword').tooltip('hide');
+    })
+
+    //hide buttons at start
+
+     $('#selection').hide();
+     $('#copy_all').hide();
+     $('#export').hide();
+
+
+     //hide output background at start
+
+     $('.output_body_wrapper').hide();
+
+     var activekw = "";
+
+
+    $("#btn").click(function(event) {
+
+
+
+
+
+
+      if ($('#keyword').val() != "" && $('#keyword').val() != activekw) {
+
+
+        activekw = $('#keyword').val()
+
+      $.ajax({
+        type: "POST",
+        url: "ajax.php",
+        data: $('#keyword').serialize(),
+        beforeSend: function(XMLHttpRequest){
+          $("#loading").css('display','inline');
+          $('#se_data').empty();  
+        }, 
+        success: function(data){
+          $("#loading").css('display','none');
+
+          //show buttons
+
+
+
+
+            $('.output_body').html(data);
+          //$('.output_body').append(data)
+
+            //if item is clicked, change class to active, update button with active count
+              
+        
+          $('#selection').show();
+          $('#copy_all').show();
+          $('#export').show();
+          $('.output_body_wrapper').show();
+
+
+    
+        }
+        
+
+
+
+
+
+      });
+
+
+      return false;
+
+    } else {
+
+     $('#selection').hide();
+     $('#copy_all').hide();
+     $('#export').hide();
+     event.preventDefault();
+
+     //show tooltip
+
+     
+     $('#keyword').tooltip('show');
+
+
+
+     
+
+
+      
+    }
+
+
+
+
+    });
+
+
+    
+  }); 
+
+  function download_xls(){
+
+      var xls_data = "";
+
+      $("td.keywords_td").each(function() {
+          xls_data = xls_data + "^^^" + $(this).text();
+      });
+
+      $('body').append('<form method="post" action="ajax.php" style="display:none;"><textarea name="download">' + xls_data + '</textarea></form>');
+      $("form:last").submit();
+  }
+
+
+    var outputkws = ""
+
+
+    //export all Button
+
+
+    $('#export').click(function(){
+
+
+      if ($('.item').length != 0) {
+    
+         $('.item').each(function() {
+
+          outputkws += $(this).html() + "\n";
+
+
+       })
+
+
+
+
+        var text = outputkws
+        var filename = "all-kws"
+        var blob = new Blob([text], {type: "text/plain;charset=utf-8"});
+        saveAs(blob, filename+".txt");
+
+
+      } else {
+
+
+      }
+
+
+    });
+
+        
+
+    //disable copy all if there is no output
+
+    var clipboard_all = ""
+
+    $('#copy_all').click(function(event) {
+
+      
+
+
+      if ($('.item').length == 0) {
+
+       event.preventDefault();
+
+      } else {
+
+        //loop through all items
+
+
+        $('.item').each(function() {
+
+          outputkws += $(this).html() + "\n";
+
+
+       })
+
+
+     
+        var copyThis = outputkws
+
+        clippy = new Clipboard('#copy_all', {
+          text: function(trigger) {
+            return copyThis;
+        }
+
+      })
+
+        clippy.on('success', function(e) {
+      
+          $('#copy_all').tooltip('show');
+          e.clearSelection();
+     
+
+
+
+    }); 
+
+
+      }
+
+
+    })
+
+
+   
+    //init clipboardjs
+
+    new Clipboard('.btn');
+
+    var clipboard_modal = new Clipboard('#copy')
+
+    
+
+    //Modal copy to clipboard -> tooltip
+
+    clipboard_modal.on('success', function(e) {
+      
+      $('#copy').tooltip('show');
+      e.clearSelection();
+    });
+
+    //tooltip for copy all
+
+    
+
+
+
+    
+
+    //check if input is empty
+
+    var kw = ""
+    var modalContent = ""
+
+    //Selection Button
+
+    $("#selection").click(function(){
+
+
+
+
+
+      if ($('.active').length != 0) {
+
+        $('#myModal').modal('show');
+
+        //reset 
+
+        modalContent = ""
+
+        $('.active').each(function(i, obj) {
+
+          //append each active KW
+
+          modalContent += $(this).html() + "<br>"
+
+      })
+
+        //set modal Body
+
+        $('.modal-body').html(modalContent)
+
+
+
+    }
+      
+
+    })
+
+
+    /*$("#btn").click(function(event) {
+
+      if ($('#keyword').val() == "") {
+
+        event.preventDefault();
+        alert("Please enter a keyword!");
+
+        //also have to check if keyword is too long here
+
+      } else {
+
+        kw = $('#keyword').val();
+
+        event.preventDefault();
+
+        //do ajax request
+
+        dat = { "keyword": "'" + kw +"'" }
+
+
+        $.ajax({
+          type: "POST",
+          url: 'process.php',
+          data: dat,
+          dataType: "json",
+
+          success: function(data) {
+
+            
+
+          
+
+            //alert(data);
+
+            var dat = "";
+
+
+            //clear output
+
+            outputkws = ""
+
+            $('.output_body').html("");
+
+            //loop through keywords and put them in spans
+
+            for (i=0; i<Object.keys(data).length;i++) {
+
+              dat = data[i] + "\n"
+
+              $('.output_body').append('<span class="item">' + dat + "</span>");
+
+              //variable to save all output KWs
+
+              outputkws += dat
+
+            }
+
+              //if item is clicked, change class to active, update button with active count
+              
+              $('.item').click(function() {
+
+                $(this).toggleClass('active')
+
+                var numItems = $('.active').length;
+
+                $('#selection').html(" KWs: "+ numItems);
+
+
+                
+
+
+
+              })
+
+
+
+             
+
+
+
+
+                     
+          }
+
+
+
+
+        })
+      }
+
+
+
+
+    })
+
+
+  */
+
