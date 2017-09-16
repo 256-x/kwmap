@@ -21,10 +21,10 @@
 
   <style>
 
-  .main {
+  .top {
 
   
-        margin-top: 10%;
+        margin-top: 10vh;
   }
 
 
@@ -118,6 +118,11 @@
 
   }
 
+  body {
+
+    padding-bottom: 50px;
+  }
+
   .output {
 
     margin-top: 20px;
@@ -127,6 +132,30 @@
     margin-top: 20px;
 
   }
+
+  .output_body_wrapper {
+
+    position: relative;
+    height: 20%;
+    overflow: hidden;
+    width: 100%;
+    height: 65vh;
+
+  }
+
+  .output_body {
+
+    width: 420px;
+    height: 90%;
+    overflow-y: auto;
+    padding: 10px;
+    
+   
+  }
+
+
+
+ 
 
   .item::after {
 
@@ -154,6 +183,8 @@
   span:hover {
   background-color: #FF9933;
   }
+
+
 
   .output_body {
      
@@ -221,11 +252,58 @@
     .output_head { margin: 5px; }
   }
 
-  @media screen and (max-width: 320px) {
+
+  @media screen and (max-width: 500px) {
+
+    #suggestions_header {
+
+      width: 85vw;
+
+    }
+
+    .output_body_wrapper {
+
+      height: 45vh; 
+      width: 350px;
+
+    }
+
+    .item {
+
+      width: 320px;
+    }
+
+    .output_body_content {
+
+      width: 275px;
+    }
+
+    .top { margin-top: 5vh !important; }
+
+  }
+
+    @media screen and (max-width: 320px) {
     #word1 { margin: 0px; }
     .output_head_right { margin: 0px; }
     #selection { width: 105px; }
+
+    .output_body_wrapper {
+
+      height: 45vh; 
+      width: 350px;
+
+    }
+
+     
+
+    .item {
+
+      width: 265px;
+    }
+
   }
+
+
 
   .footer a {
 
@@ -235,21 +313,8 @@
 
   }
 
-  .footer {
 
-    position: fixed;
-    height: 50px;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-    margin-bottom: 0px;
 
-  }
-
-  body {
-
-    margin-bottom:50px;
-  }
 
 
   </style>
@@ -264,6 +329,8 @@
 
     <div id="overlay" class="main text-center">
 
+      <div class="top">
+
       <h1><span id="word1">keywordmap</span><span id="word2">.io</span></h1>
 
       <form class="form-inline justify-content-center" id="analyze" name="analyze" method="POST">
@@ -276,13 +343,7 @@
          </div>
       </form>
 
-      <div>
-
-
-    
-
-
-      </div>
+    </div>
 
       <!-- Output area !-->
 
@@ -308,12 +369,16 @@
 
       </div>
 
-      <div class="output_body" id="output_body">
+      <div class="output_body_wrapper">
 
+        <div class="output_body" id="output_body">
+
+      </div>
       
       </div>
 
-      <div class="footer text-center">
+      <div class="footer fixed-bottom">
+
 
         <a href="/about">About</a>
 
