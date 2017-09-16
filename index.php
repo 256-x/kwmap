@@ -141,11 +141,12 @@
     width: 100%;
     height: 65vh;
 
+
   }
 
   .output_body {
 
-    width: 420px;
+    width: 430px;
     height: 90%;
     overflow-y: auto;
     padding: 10px;
@@ -174,6 +175,7 @@
     padding-left: 15px;
     cursor: pointer;
     color: white;
+    font-size: 18px;
   }
 
   .item.selected::after {
@@ -379,10 +381,11 @@
 
       <div class="footer fixed-bottom">
 
+        <a href="index.php">Home</a>
 
-        <a href="/about">About</a>
+        <a href="about.php" style="padding-left: 20px">About</a>
 
-        <a href="/legal" style="padding-left: 20px">Legal Notice</a>
+        <a href="legal.php" style="padding-left: 20px">Legal Notice</a>
 
       </div>
          
@@ -522,6 +525,10 @@
      $('#export').hide();
 
 
+     //hide output background at start
+
+     $('.output_body_wrapper').hide();
+
 
     $("#btn").click(function(event) {
 
@@ -553,8 +560,7 @@
           $('#selection').show();
           $('#copy_all').show();
           $('#export').show();
-
-
+          $('.output_body_wrapper').show();
 
 
     
