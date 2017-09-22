@@ -12,6 +12,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <script type="text/javascript" src="d3.js" charset="utf-8"></script>
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
@@ -29,13 +31,18 @@
 
     <div id="overlay" class="main text-center">
 
+
+
       <div class="top">
 
       <h1><span id="word1">keywordmap</span><span id="word2">.io</span></h1>
 
+      <!-- form -->
+
       <form class="form-inline justify-content-center" id="analyze" name="analyze" method="POST">
 
         <div class="form-group" id="input_head"> 
+          
           <input id="keyword" class="form-control-lg" type="text" name="keywords" placeholder="Enter Keyword here" data-placement="bottom" data-toggle="tooltip" title="Please enter a keyword"></input>
       
           <button id="btn" class="btn btn-primary btn-lg">Suggest!</button>
@@ -46,6 +53,8 @@
     </div>
 
       <!-- Output area !-->
+
+      <div class="output_canvas"></div>
 
       <div class="output">
 
@@ -71,11 +80,17 @@
 
       <div class="output_body_wrapper">
 
+        <div class="output_body_canvas"></div>
         <div class="output_body" id="output_body">
 
       </div>
       
       </div>
+
+      <div class="chart text-center"></div>
+
+
+      <!--footer -->
 
       <div class="footer fixed-bottom">
 

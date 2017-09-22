@@ -25,10 +25,17 @@ tr#se { border-bottom: 1px solid #CCC; color: #000; }
 .clear { clear:both; overflow: auto; width: 100% }
 #footer { margin: 25px 0 40px 0; color: #999; text-transform: uppercase; font-size: 10px; }
 
+ 
+  .output_canvas {
+
+    margin-top: 80px;
+    margin-bottom: 50px;
+  }
+
 
   .top {
 
-  
+        
         margin-top: 10vh;
   }
 
@@ -41,7 +48,6 @@ tr#se { border-bottom: 1px solid #CCC; color: #000; }
   h1 {
 
     font-family: Helvetica;
-
 
   }
 
@@ -306,6 +312,7 @@ tr#se { border-bottom: 1px solid #CCC; color: #000; }
     .item {
 
       width: 265px;
+
     }
 
   }
@@ -319,4 +326,42 @@ tr#se { border-bottom: 1px solid #CCC; color: #000; }
    
 
   }
+
+
+
+  /* diagram test */
+
+
+  .chart {
+    width: 2000px
+    
+  }
+
+  svg {
+
+  display: block;
+  margin: 0 auto;
+ 
+}
+
+.node circle {
+  fill: #3399ff;
+  stroke: #d3d3d3;
+  stroke-width: 1px;
+
+}
+
+.node {
+  font-family: verdana, sans-serif;
+  font-size: 18px;
+  font-weight: normal;
+  fill: white;
+  
+}
+
+.link {
+  fill: none;
+  stroke: #787878;
+  stroke-width: 1px;
+}
 

@@ -15,6 +15,8 @@ $keyword				=	strtolower(trim($_GET["keyword"]));
 $letter					=	strtoupper(trim($_GET["letter"]));
 
 
+
+
 $suggestions = suggest($keyword);
 
 if ($suggestions) {

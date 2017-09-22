@@ -1,11 +1,14 @@
 
 
+root = ""
+
         //ajax stop
 
         $(document).ajaxStop(function () {
 
 
           $('#suggestions_header').prepend($('.item').length + " ");
+
 
         })
    
@@ -21,8 +24,6 @@
                 $('#selection').html(" KWs: "+ numItems);
 
              
-
-              
 
               })
 
@@ -57,15 +58,16 @@
     $("#btn").click(function(event) {
 
 
-
-
-
+      //check input if empty or already typed in
 
       if ($('#keyword').val() != "" && $('#keyword').val() != activekw) {
 
 
         activekw = $('#keyword').val()
 
+        setRoot();
+
+        
       $.ajax({
         type: "POST",
         url: "ajax.php",
@@ -120,11 +122,6 @@
      $('#keyword').tooltip('show');
 
 
-
-     
-
-
-      
     }
 
 
@@ -403,3 +400,147 @@
 
   */
 
+  // diagram test
+
+  /*var root = {"name" : "Araneae", "children" : [
+
+        {"name" : "Agelenidae", "children" : [
+
+
+         ] },
+        {"name" : "Araneidae", "children" : [
+          
+        ] },
+           {"name" : "Araneidae", "children" : [
+ 
+        ] },
+           {"name" : "Araneidae", "children" : [
+          
+        ] },
+           {"name" : "Araneidae", "children" : [
+          
+        ] },
+           {"name" : "Araneidae", "children" : [
+          
+        ] },
+           {"name" : "Araneidae", "children" : [
+      
+        ] },
+           {"name" : "Ctenidae", "children" : [
+         
+        ] },
+            {"name" : "Desidae", "children" : [
+         
+
+        ] },
+                    {"name" : "Filistatidae", "children" : [
+          
+        ] },
+                    {"name" : "Lycosidae", "children" : [
+       
+
+        ] },
+                    {"name" : "Pholcidae", "children": [
+         
+
+        ] },
+                    {"name" : "Salticidae", "children": [
+          
+
+        ] },
+                    {"name" : "Sicariidae", "children": [
+       
+
+        ] },
+                    {"name" : "keyword + A", "children": [
+        
+
+        ] }
+        
+                ]};
+
+
+  */
+
+
+
+function setRoot() {
+
+    var stringdata = "keyword='" + $('#keyword').val() + "'";
+
+
+    $.ajax({
+        type: "GET",
+        url: "request-small.php",
+        data: stringdata,
+        success: function(data){
+
+          console.log(data)
+
+
+          $('.output_canvas').html("");
+
+
+          $('.output_canvas').html(data);
+
+          //root = JSON.parse(data);
+        //
+
+          
+          //console.log(root);
+      }
+
+    })
+
+
+}
+
+
+/*
+function setCanvas() {
+
+
+
+var diameter = 800;
+
+var tree = d3.layout.tree()
+    .size([360, diameter / 2 - 190])
+    .separation(function(a, b) { return (a.parent == b.parent ? 1 : 2) / a.depth; });
+
+var diagonal = d3.svg.diagonal.radial()
+    .projection(function(d) { return [d.y, d.x / 180 * Math.PI]; });
+
+var svg = d3.select(".output_canvas").append("svg")
+    .attr("width", diameter + 20)
+    .attr("height", diameter - 40)
+  .append("g")
+    .attr("transform", "translate(" + diameter / 2 + "," + diameter / 2 + ")");
+
+  var nodes = tree.nodes(root),
+      links = tree.links(nodes);
+
+  var link = svg.selectAll(".link")
+      .data(links)
+    .enter().append("path")
+      .attr("class", "link")
+      .attr("d", diagonal);
+
+  var node = svg.selectAll(".node")
+      .data(nodes)
+    .enter().append("g")
+      .attr("class", "node")
+      .attr("transform", function(d) { return "rotate(" + (d.x - 90) + ")translate(" + d.y + ")"; })
+
+  node.append("circle")
+      .attr("r", 5);
+
+  node.append("text")
+      .attr("dy", ".31em")
+      .attr("text-anchor", function(d) { return d.x < 180 ? "start" : "end"; })
+      .attr("transform", function(d) { return d.x < 180 ? "translate(8)" : "rotate(180)translate(-8)"; })
+      .text(function(d) { return d.name; });
+
+d3.select(self.frameElement).style("height", diameter - 150 + "px");
+}
+
+*/
