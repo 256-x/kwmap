@@ -341,7 +341,7 @@ tr#se { border-bottom: 1px solid #CCC; color: #000; }
 
   display: block;
   margin: 0 auto;
- 
+  padding-left: 125px; 
 }
 
 .node circle {
