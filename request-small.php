@@ -4,11 +4,13 @@ error_reporting(0);
 set_time_limit(0);
 
 include("functions.php");
+include("limit_access.php");
+
 
 //'<span class="item">' + dat + "</span>"
 							
 
-if($_GET['keyword']){
+if($_GET['keyword'] && $_SESSION['count'] <= 4){
 	
 	
 $keyword				=	strtolower(trim($_GET["keyword"]));

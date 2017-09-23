@@ -8,6 +8,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+
+    <title>Keyword Map</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -82,13 +84,16 @@
 
         <div class="output_body_canvas"></div>
         <div class="output_body" id="output_body">
+        </div>
 
-      </div>
+
+        
       
       </div>
 
       <div class="chart text-center"></div>
 
+    
 
       <!--footer -->
 

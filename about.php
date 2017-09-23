@@ -6,7 +6,7 @@
 	  <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="style.css">
     <style>
 
 
@@ -60,13 +60,6 @@
   	
   }
 
-  .footer a {
-
-
-    color: white;
-    font-size: 20px;
-   
-  }
 
 
   
@@ -97,7 +90,9 @@
 
 			<p>keywordmap.io was created to help you with related and long tail keywords.<br></br>
 
-			You can easily copy the suggested keywords to your clipboard or download them in a .txt file.
+			<p>You can easily copy the suggested keywords to your clipboard or download them in a .txt file.</p>
+
+      <p>Currently the map is disabled for the mobile version, only the keywords will show.</p>
 				   
 
  

@@ -6,7 +6,7 @@
 	  <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="style.css">
     <style>
 
     body {
@@ -57,15 +57,6 @@
   	margin-top: 15px;
   	
   }
-
-  .footer a {
-
-
-    color: white;
-    font-size: 20px;
-   
-  }
-  
 
 
 

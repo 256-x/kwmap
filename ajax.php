@@ -3,6 +3,8 @@
 error_reporting(0);
 set_time_limit(0);
 
+include("limit_access.php");
+
 include("functions.php");
 
 $download = "";
@@ -24,7 +26,7 @@ exit();
 }
 						
 
-if($_POST){
+if($_POST && $_SESSION['count'] <= 4){
 
 $keywords = ""; 	
 $level = "basic";
@@ -118,6 +120,29 @@ $generated_content = <<<EOF
 EOF;
 
 echo $generated_content;
-}
 
-?>
+} else {
+
+
+echo '<div class="text-center">';
+echo '<h1 style="color: white;" id="limit_reached">Limit reached!</h1>';
+echo '<p style="color: white;">Please try again later!</p>';
+echo '<p style="color: white;">Or sign up to the newsletter and unlock 10 more suggestions!</p>';
+echo <<<EOL
+ 
+
+      <div class="form-inline justify-content-center">
+          <form action="register.php">
+          <input class="form-control" type="email" placeholder="E-Mail" id="email-signup" name="email-signup"></input>
+          <button id="email-submit" class="btn btn-primary">Sign Up!</button>
+          </form>
+    </div>
+
+
+
+EOL;
+echo '</div>';
+
+
+
+}
