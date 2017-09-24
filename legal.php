@@ -93,7 +93,9 @@
 
 		</div>
 
-	  <div class="footer fixed-bottom">
+    <nav class="navbar fixed-bottom navbar-expand-sm navbar-dark bg-dark">
+
+	  <div class="footer row justify-content-center align-self-center mx-auto">
 
 
         <a href="index.php">Home</a>
@@ -105,7 +107,7 @@
 
       </div>
          
-
+    </nav>
 
 	</div>
 

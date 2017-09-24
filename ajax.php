@@ -116,7 +116,6 @@ $generated_content = <<<EOF
 
 
 
-
 EOF;
 
 echo $generated_content;
