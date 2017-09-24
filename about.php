@@ -94,12 +94,19 @@
 
       <p>Currently the map is disabled for the mobile version, only the keywords will show.</p>
 				   
-
- 
-
 			</p>
 
 		</div>
+
+
+        <div class="form-inline justify-content-center">
+          <p>You can also sign up on the Newsletter and get notified when I release new tools!</p>
+          <form action="register.php">
+          <input class="form-control" type="email" placeholder="E-Mail" id="email-signup-about" name="email-signup"></input>
+          <button id="email-submit-about" class="btn btn-primary">Sign Up!</button>
+          </form>
+    </div>
+
 
 	  <div class="footer fixed-bottom">
 
@@ -125,5 +132,6 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 <script type="text/javascript" src="particles.js"></script>
 <script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="about-scripts.js"></script>
 </body>
 </html>

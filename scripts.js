@@ -1,6 +1,6 @@
 
 
-root = ""
+
 
         //ajax stop
 
@@ -17,6 +17,8 @@ root = ""
           if ($('#limit_reached').html() == "Limit reached!") {
 
             $('.output_head').hide();
+
+            //Email Signup Homepage
 
              $('#email-submit').click(function(event){
 
@@ -59,13 +61,64 @@ root = ""
                 });
 
 
+                  //About Page Signup
+
+
+             $('#email-submit-about').click(function(event){
+
+                event.preventDefault();
+
+
+          if ($('#email-signup-about').val() != "" && isValidEmailAddress($('#email-signup-about').val())) {
+
+
               
+                  $.ajax({
+                        type: "POST",
+                        url: 'register.php',
+                        data: $("#email-signup").serialize(), // serializes the form's elements.
+                        success: function(data)
+                        {
+
+                        if (data == "Yeah bro u got signed up!") {
+
+                          $('.output_body').html("");
+                          alert("Signup successful!")
+
+
+
+                        } else if (data == "This E-Mail already exists!") {
+
+
+                          alert("This E-Mail is already signed up!")
+
+                        } else if (data == "Already registered once") {
+                           $('.output_body').html("");
+                          alert("You already signed up!")
+                          
+
+                        }
+
+
+                         // show response from the php script.
+                    }
+                });
+
+
+
+
+
 
 
           }
 
 
           })
+
+
+
+
+
 
 
           }
@@ -92,6 +145,10 @@ root = ""
 
 
   $(document).ready(function(){
+
+    root = ""
+
+    $('#keyword').focus()
 
    
     //hide tooltip from input bar if selected
