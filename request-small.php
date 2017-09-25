@@ -93,3 +93,5 @@ EOF;
 echo $generated_content;
 
 };
+
+?>

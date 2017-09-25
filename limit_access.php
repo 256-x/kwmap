@@ -28,3 +28,5 @@ else
    // Die if they have viewed the page too many times
  
 }
+
+?>
