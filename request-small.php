@@ -90,7 +90,7 @@ d3.select(self.frameElement).style("height", diameter - 150 + "px");
 EOF;
 
 
-echo $generated_content;
+echo json_encode($generated_content);
 
 };
 

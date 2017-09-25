@@ -38,6 +38,7 @@
                         success: function(data)
                         {
 
+
                         if (data == "Yeah bro u got signed up!") {
 
                           $('.output_body').html("");
@@ -144,6 +145,7 @@
         type: "POST",
         url: "ajax.php",
         data: $('#keyword').serialize(),
+        //dataType: 'json',
         beforeSend: function(XMLHttpRequest){
           $("#loading").css('display','inline');
           $('#se_data').empty();  
@@ -152,7 +154,6 @@
           $("#loading").css('display','none');
 
           //show buttons
-
 
 
 
@@ -557,7 +558,7 @@ function setRoot() {
           $('.output_canvas').html("");
 
 
-          $('.output_canvas').html(data);
+          $('.output_canvas').html(JSON.parse(data));
 
           //root = JSON.parse(data);
         //

@@ -1,7 +1,5 @@
 <?php
 
-error_reporting(0);
-set_time_limit(0);
 
 include("limit_access.php");
 
@@ -32,7 +30,7 @@ $keywords = "";
 $level = "basic";
 	
 $keywords				=	strtolower(trim($_POST["keywords"]));
-$level					=	trim($_POST["level"]);
+//$level					=	trim($_POST["level"]);
 $level = "basic";
 				
 
